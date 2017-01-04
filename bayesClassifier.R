@@ -13,7 +13,7 @@ bayesClassifier<-function(menClass, womenClass, document, menPrior, womenPrior){
   #finds intersection of document data frame and the menClass and womenClass dataframes
   intersectM<-menClass[is.element(menClass$menClass, intersect(document$`unlist(x)`, menClass$menClass)),]
   intersectW<-womenClass[is.element(womenClass$womenClass, intersect(document$`unlist(x)`, womenClass$womenClass)),]
-  #conditional probabilities that each intersecting word, this would be the place to add smoothing if desired in place of the 0s
+  #conditional probabilities of each intersecting word, this would be the place to add smoothing if desired in place of the 0s
   intersectM$Freq<-(intersectM$Freq+0)/(mCount+vocabCount+0)
   intersectW$Freq<-(intersectW$Freq+0)/(wCount+vocabCount+0)
   #finds product the frequency column and multiplies by the priors
